@@ -1,11 +1,7 @@
 # Codebase RAG AI Developer
 
-Local-first codebase retrieval demo with source citations. It indexes source/docs, chunks by line range, ranks with BM25-style lexical scoring, and exposes CLI + FastAPI. This baseline returns evidence rather than claiming LLM-generated answers; embeddings and synthesis are roadmap items.
+Local codebase retrieval demo with line-aware chunks, lexical ranking and file citations. It returns evidence, not fabricated LLM answers. Embeddings/vector DB/LLM synthesis are future adapters.
 
-## Run
-`pip install -r requirements.txt`
-`python -m codebase_rag.cli ask "customer validation" --path examples/sample_repo`
-`uvicorn codebase_rag.api:app --reload`
-`pytest`
+Run: `pip install -r requirements.txt`; `python -m codebase_rag.cli "customer validation" examples/sample_repo`; `pytest`.
 
-The API accepts local paths: keep it on localhost and add authentication/path allowlists before deployment. Index only repositories you are authorized to inspect.
+The local API accepts filesystem paths: keep localhost-only and add authentication/path allowlists before deployment.
